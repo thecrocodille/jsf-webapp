@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: thecrocodille
+  Date: 01.07.2020
+  Time: 0:21
+-->
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="WEB-INF/template.xhtml">
+
+    <ui:define name="page_title">
+        Products List
+    </ui:define>
+
+    <ui:define name="page_body">
+        <h:form id="main_form">
+            <ui:include src="WEB-INF/products/dialogs.xhtml"/>
+
+            <p:panelGrid>
+                <h:outputText value="Name"/>
+                <h:inputText value="#{productListBean.newProduct.name}"/>
+
+                <h:outputText value="Price"/>
+                <h:inputText value="#{productListBean.newProduct.price}"/>
+
+                <h:commandButton value="Create"
+                                 action="#{productListBean.createNewProduct}"
+                                 update="products_table"/>
+            </p:panelGrid>
+
+
+            <p:dataTable value="#{productListBean.products}" var="product" id="products_table">
+                <p:column headerText="Name">
+                    <h:outputText value="#{product.name}"/>
+                </p:column>
+
+                <p:column headerText="Price">
+                    <h:outputText value="#{product.price}"/>
+                </p:column>
+
+                <p:column>
+                    <p:commandButton value="Delete"
+                                     action="#{productListBean.setIdForDelete(product.id)}"
+                                     oncomplete="PF('delete_dialog').show();"/>
+                </p:column>
+
+                <p:column>
+                    <p:commandButton value="Update"
+                                     action="#{productListBean.setProductToEdit(product.id)}"
+                                     oncomplete="window.location = update_product.xhtml"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: thecrocodille
+  Date: 08.07.2020
+  Time: 23:22
+-->
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="WEB-INF/template.xhtml">
+    <h:form>
+        <p:panel>
+            <h:outputLabel for="product_name" value="Name"/>
+            <h:inputText id="product_name" value="#{productListBean.productToEdit.name}"/>
+            <br/>
+            <h:outputLabel for="product_price" value="Price"/>
+            <h:inputText id="product_price" value="#{productListBean.productToEdit.price}"/>
+        </p:panel>
+
+        <p:commandButton value="Update"
+                         action="#{productListBean.updateProduct}"
+                         update="products_table"
+                         oncomplete="PF('update_dialog').hide();"/>
+
+        <p:commandButton value="Cancel" onclick="PF('update_dialog').hide();"/>
+    </h:form>
+</ui:composition>

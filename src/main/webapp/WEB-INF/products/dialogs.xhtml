@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: thecrocodille
+  Date: 08.07.2020
+  Time: 18:24
+-->
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html">
+    <p:dialog header="Are you sure?" id="delete_dialog" widgetVar="delete_dialog">
+        <p:commandButton value="Delete"
+                         action="#{productListBean.deleteProduct}"
+                         update="products_table"
+                         oncomplete="PF('delete_dialog').hide();"/>
+
+        <p:commandButton value="Cancel" onclick="PF('delete_dialog').hide();"/>
+    </p:dialog>
+
+
+</ui:composition>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: thecrocodille
+  Date: 30.06.2020
+  Time: 20:55
+-->
+
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <h:form>
+        <p:toolbar>
+
+            <f:facet name="left">
+                <p:commandButton type="button" value="New" icon="pi pi-file" />
+
+                <p:commandButton type="button" value="Open" icon="pi pi-folder-open" />
+
+                <span class="ui-separator">
+                <span class="ui-icon pi pi-ellipsis-v" />
+            </span>
+
+                <p:commandButton type="button" title="Save" icon="pi pi-save" />
+                <p:commandButton type="button" title="Delete" icon="pi pi-trash" />
+                <p:commandButton type="button" title="Print" icon="pi pi-print" />
+            </f:facet>
+
+            <f:facet name="right">
+                <p:menuButton value="Options">
+                    <p:menuitem value="Save" icon="pi pi-save" />
+                    <p:menuitem value="Update" icon="pi pi-refresh" />
+                    <p:menuitem value="Delete"  ajax="false" icon="pi pi-times" />
+                    <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="pi pi-home" />
+                </p:menuButton>
+            </f:facet>
+
+        </p:toolbar>
+    </h:form>
+</ui:composition>
